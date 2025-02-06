@@ -108,19 +108,19 @@
 
         FUNCTION {
             bindings = <
-&to_layer_0 ESC   &to_layer_0 F9  &to_layer_0 F10    &to_layer_0 F11  &to_layer_0 F12                        &trans    &to_layer_0 LEFT  &to_layer_0 UP_ARROW    &to_layer_0 RIGHT_ARROW  &trans
-&to_layer_0 HOME  &to_layer_0 F5  &to_layer_0 F6     &to_layer_0 F7   &kp F8           &trans      &trans    &trans    &mkp MB1          &to_layer_0 DOWN_ARROW  &mkp MB2                 &mkp MCLK
-&to_layer_0 END   &to_layer_0 F1  &to_layer_0 F2     &to_layer_0 F3   &to_layer_0 F4   &trans      &trans    &trans    &trans            &kp LS(LEFT_BRACKET)    &kp LS(RIGHT_BRACKET)    &trans
-&trans            &trans          &lt 3 RIGHT_SHIFT  &trans           &trans           &trans      &mkp MB4  &mkp MB5                                                                     &trans
+&to_layer_0 ESC   &to_layer_0 F9  &to_layer_0 F10    &to_layer_0 F11  &to_layer_0 F12                      &trans  &trans  &trans  &trans  &trans
+&to_layer_0 HOME  &to_layer_0 F5  &to_layer_0 F6     &to_layer_0 F7   &kp F8           &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&to_layer_0 END   &to_layer_0 F1  &to_layer_0 F2     &to_layer_0 F3   &to_layer_0 F4   &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans            &trans          &lt 3 RIGHT_SHIFT  &trans           &trans           &trans      &trans  &trans                          &trans
             >;
         };
 
         NUM {
             bindings = <
-&to_layer_0 TAB  &kp N7  &kp N8  &kp N9  &kp N0                           &kp K_COPY  &kp LEFT   &kp UP    &kp RIGHT  &kp K_PASTE
-&trans           &kp N4  &kp N5  &kp N6  &kp SEMI   &trans      &trans    &kp GRAVE   &mkp MB1   &kp DOWN  &mkp MB2   &mkp MB3
-&trans           &kp N1  &kp N2  &kp N3  &kp MINUS  &trans      &trans    &kp APOS    &kp EQUAL  &kp LBKT  &kp RBKT   &kp GRAVE
-&trans           &trans  &trans  &trans  &trans     &trans      &mkp MB4  &mkp MB5                                    &kp RSHFT
+&to_layer_0 TAB  &kp N7        &kp N8        &kp N9  &kp N0                           &kp K_COPY  &kp LEFT   &kp UP    &kp RIGHT  &kp K_PASTE
+&trans           &kp N4        &kp N5        &kp N6  &kp SEMI   &trans      &trans    &kp GRAVE   &mkp MB1   &kp DOWN  &mkp MB2   &mkp MB3
+&trans           &kp N1        &kp N2        &kp N3  &kp MINUS  &trans      &trans    &kp APOS    &kp EQUAL  &kp LBKT  &kp RBKT   &kp GRAVE
+&kp LCTRL        &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans     &trans      &mkp MB4  &mkp MB5                                    &kp RSHFT
             >;
         };
 
@@ -135,10 +135,10 @@
 
         MOUSE {
             bindings = <
-&to_layer_0 TAB  &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9     &to_layer_0 N0                                               &to_layer_0 K_COPY  &kp LEFT           &kp UP            &kp RIGHT          &to_layer_0 K_PASTE
-&trans           &to_layer_0 N4  &to_layer_0 N5  &to_layer_0 N6     &to_layer_0 SEMI   &trans                 &trans             &to_layer_0 GRAVE   &mkp_exit_AML MB1  &kp DOWN             &mkp_exit_AML MB2  &mkp_exit_AML MB3
-&trans           &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3     &to_layer_0 MINUS  &trans                 &trans             &to_layer_0 SQT     &to_layer_0 EQUAL  &to_layer_0 LBKT  &to_layer_0 RBKT   &to_layer_0 GRAVE
-&trans           &trans          &trans          &to_layer_0 LANG2  &trans             &to_layer_0 LANG1      &mkp_exit_AML MB4  &mkp_exit_AML MB5                                                           &to_layer_0 LSHFT
+&to_layer_0 Q  &to_layer_0 W  &to_layer_0 E  &to_layer_0 R      &to_layer_0 T                                            &to_layer_0 Y      &to_layer_0 U      &trans             &trans             &trans
+&to_layer_0 A  &to_layer_0 S  &to_layer_0 D  &to_layer_0 F      &to_layer_0 G  &trans                 &trans             &to_layer_0 GRAVE  &mkp_exit_AML MB1  &trans             &mkp_exit_AML MB2  &mkp_exit_AML MB3
+&to_layer_0 Z  &to_layer_0 X  &to_layer_0 C  &to_layer_0 V      &to_layer_0 B  &trans                 &trans             &to_layer_0 N      &to_layer_0 M      &to_layer_0 COMMA  &to_layer_0 DOT    &to_layer_0 FSLH
+&trans         &trans         &trans         &to_layer_0 LANG2  &trans         &to_layer_0 LANG1      &mkp_exit_AML MB4  &mkp_exit_AML MB5                                                           &to_layer_0 LSHFT
             >;
         };
 
@@ -153,10 +153,10 @@
 
         SYMBOL {
             bindings = <
-&to_layer_0 LS(Q)  &to_layer_0 LS(N7)    &to_layer_0 LS(N8)    &to_layer_0 LS(N9)  &to_layer_0 LS(N0)                                                       &to_layer_0 BSLH      &to_layer_0 LS(U)      &to_layer_0 LS(I)      &to_layer_0 LS(O)    &to_layer_0 LS(P)
-&to_layer_0 LS(A)  &to_layer_0 LS(N4)    &to_layer_0 LS(N5)    &to_layer_0 LS(N6)  &to_layer_0 LS(SEMI)   &to_layer_0 LS(LG(T))      &to_layer_0 LS(MINUS)  &to_layer_0 LS(H)     &to_layer_0 LS(J)      &to_layer_0 LS(K)      &to_layer_0 LS(L)    &none
-&to_layer_0 LS(Z)  &to_layer_0 LS(N1)    &to_layer_0 LS(N2)    &to_layer_0 LS(N3)  &to_layer_0 LS(MINUS)  &to_layer_0 LS(APOS)       &to_layer_0 LS(EQUAL)  &to_layer_0 LS(APOS)  &to_layer_0 LS(EQUAL)  &to_layer_0 LS(COMMA)  &to_layer_0 LS(DOT)  &to_layer_0 LS(SEMICOLON)
-&to_layer_0 LCTRL  &to_layer_0 LEFT_WIN  &to_layer_0 LEFT_ALT  &trans              &trans                 &trans                     &to_layer_0 BACKSPACE  &to_layer_0 ENTER                                                                        &to_layer_0 LS(SLASH)
+&trans     &to_layer_0 AMPERSAND  &to_layer_0 ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                      &kp BSLH           &trans    &trans            &trans             &trans
+&trans     &kp DOLLAR             &kp PERCENT           &kp CARET             &kp COLON              &trans      &trans  &kp TILDE          &trans    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_SHIFT
+&trans     &kp EXCLAMATION        &kp AT_SIGN           &kp HASH              &kp UNDERSCORE         &trans      &trans  &kp DOUBLE_QUOTES  &kp PLUS  &kp LESS_THAN     &kp GREATER_THAN   &kp COLON
+&kp LCTRL  &kp LEFT_WIN           &kp LEFT_ALT          &trans                &trans                 &trans      &trans  &trans                                                            &kp QUESTION
             >;
 
             sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN>;

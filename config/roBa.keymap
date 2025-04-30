@@ -80,6 +80,18 @@
 
             tap-ms = <20>;
         };
+
+
+        mo_tog: mo-tog {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_TOG";
+            #binding-cells = <1>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&tog>;
+        };
+
+
     };
 
     keymap {

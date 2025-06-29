@@ -107,10 +107,10 @@
 
         FUNCTION {
             bindings = <
-&kp ESC   &kp F9  &kp F10            &kp F11  &kp F12                      &trans  &trans  &trans  &trans  &trans
-&kp HOME  &kp F5  &kp F6             &kp F7   &kp F8   &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&kp END   &kp F1  &kp F2             &kp F3   &kp F4   &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans    &trans  &lt 3 RIGHT_SHIFT  &trans   &trans   &trans      &trans  &trans                          &trans
+&kp ESC   &kp F9  &kp F10            &kp F11  &kp F12                           &trans  &trans  &trans  &trans  &trans
+&kp HOME  &kp F5  &kp F6             &kp F7   &kp F8   &kp LC(DEL)      &trans  &trans  &trans  &trans  &trans  &trans
+&kp END   &kp F1  &kp F2             &kp F3   &kp F4   &trans           &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans  &lt 3 RIGHT_SHIFT  &trans   &trans   &trans           &trans  &trans                          &trans
             >;
         };
 
@@ -152,10 +152,10 @@
 
         SYMBOL {
             bindings = <
-&trans     &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                      &kp BSLH           &trans    &trans            &trans             &trans
-&trans     &kp DOLLAR       &kp PERCENT   &kp CARET             &kp COLON              &trans      &trans  &kp TILDE          &trans    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_SHIFT
-&trans     &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &kp UNDERSCORE         &trans      &trans  &kp DOUBLE_QUOTES  &kp PLUS  &kp LESS_THAN     &kp GREATER_THAN   &kp COLON
-&kp LCTRL  &kp LEFT_WIN     &kp LEFT_ALT  &trans                &trans                 &trans      &trans  &trans                                                            &kp QUESTION
+&trans     &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                                &kp BSLH           &trans    &kp LEFT_BRACE    &kp RIGHT_BRACE    &trans
+&trans     &kp DOLLAR       &kp PERCENT   &kp CARET             &kp COLON              &trans      &trans            &kp TILDE          &trans    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_SHIFT
+&trans     &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &kp UNDERSCORE         &trans      &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &kp PLUS  &kp LESS_THAN     &kp GREATER_THAN   &kp COLON
+&kp LCTRL  &kp LEFT_WIN     &kp LEFT_ALT  &trans                &trans                 &trans      &trans            &trans                                                            &kp QUESTION
             >;
 
             sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN>;

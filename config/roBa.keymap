@@ -42,6 +42,11 @@
             bindings = <&bt BT_SEL 4>;
             key-positions = <26 32>;
         };
+
+        clear_bluetooth {
+            bindings = <&bt BT_CLR_ALL>;
+            key-positions = <15 27 16 28>;
+        };
     };
 
     macros {

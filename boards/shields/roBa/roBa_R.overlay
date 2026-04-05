@@ -19,6 +19,8 @@
         status = "okay";
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        automouse-layer = <4>;  /* MOUSE layer: トラックボール移動で自動的にMOUSEレイヤーへ切換 */
+        scroll-layers = <5>;    /* SCROLL layer: このレイヤー上ではトラックボールがスクロール動作 */
     };
 };
 

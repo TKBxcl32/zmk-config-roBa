@@ -10,10 +10,10 @@
 
 &mt {
     flavor = "balanced";
-    quick-tap-ms = <0>;
+    quick-tap-ms = <150>;
 };
 
-&sl { release-after-ms = <250>; }; // ダブルクリックに必要な時間を設定
+&sl { release-after-ms = <450>; }; // ダブルクリックに必要な時間を設定
 / {
     combos {
         compatible = "zmk,combos";
@@ -47,6 +47,53 @@
             bindings = <&bt BT_CLR_ALL>;
             key-positions = <15 27 16 28>;
         };
+
+        // インデント（S+D / D+F）
+        TAB_COMBO {
+            bindings = <&kp TAB>;
+            key-positions = <11 12>;
+            layers = <0>;
+            require-prior-idle-ms = <125>;
+        };
+
+        SHIFT_TAB_COMBO {
+            bindings = <&kp LS(TAB)>;
+            key-positions = <12 13>;
+            layers = <0>;
+            require-prior-idle-ms = <125>;
+        };
+
+        // 保存（S+F）
+        SAVE {
+            bindings = <&kp LC(S)>;
+            key-positions = <11 13>;
+            layers = <0>;
+            require-prior-idle-ms = <125>;
+        };
+
+        // アンドゥ（X+C）
+        UNDO {
+            bindings = <&kp LC(Z)>;
+            key-positions = <23 24>;
+            layers = <0>;
+            require-prior-idle-ms = <125>;
+        };
+
+        // コメントトグル（J+K）
+        COMMENT_TOGGLE {
+            bindings = <&kp LC(FSLH)>;
+            key-positions = <18 19>;
+            layers = <0>;
+            require-prior-idle-ms = <125>;
+        };
+
+        // Escape（Q+W）
+        ESC_COMBO {
+            bindings = <&kp ESC>;
+            key-positions = <0 1>;
+            layers = <0>;
+            require-prior-idle-ms = <125>;
+        };
     };
 
     macros {
@@ -55,6 +102,28 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
+        };
+
+        // コーディング用アロー記号マクロ
+        arrow: arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS &kp GT>;
+            label = "ARROW";
+        };
+
+        fat_arrow: fat_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GT>;
+            label = "FAT_ARROW";
+        };
+
+        not_eq: not_eq {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EXCLAMATION &kp EQUAL>;
+            label = "NOT_EQ";
         };
 
         macros {
@@ -94,6 +163,13 @@
 
             tap-ms = <20>;
         };
+
+        scroll_left_right: behavior_sensor_rotate_mouse_wheel_left_right {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+            tap-ms = <20>;
+        };
     };
 
     keymap {
@@ -112,11 +188,14 @@
 
         FUNCTION {
             bindings = <
-&kp ESC   &kp F9  &kp F10            &kp F11  &kp F12                           &trans  &trans  &trans  &trans  &trans
-&kp HOME  &kp F5  &kp F6             &kp F7   &kp F8   &kp LC(DEL)      &trans  &trans  &trans  &trans  &trans  &trans
-&kp END   &kp F1  &kp F2             &kp F3   &kp F4   &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&trans    &trans  &lt 3 RIGHT_SHIFT  &trans   &trans   &trans           &trans  &trans                          &trans
+// 左手: F1-F12 + HOME/END               右手: IDEショートカット
+&kp ESC   &kp F9  &kp F10            &kp F11  &kp F12                           &kp LC(LS(P))  &kp LC(LS(K))  &kp LC(GRAVE)  &kp LC(B)    &kp LC(LS(E))
+&kp HOME  &kp F5  &kp F6             &kp F7   &kp F8   &kp LC(DEL)      &trans  &kp LA(LS(F))  &kp LC(D)      &kp LC(F)      &kp LC(H)    &trans
+&kp END   &kp F1  &kp F2             &kp F3   &kp F4   &trans           &trans  &kp C_MUTE     &kp C_VOL_DN   &kp C_VOL_UP   &kp C_PP     &kp C_NEXT
+&trans    &trans  &lt 3 RIGHT_SHIFT  &trans   &trans   &trans           &trans  &trans                                                      &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         NUM {
@@ -126,6 +205,8 @@
 &trans     &kp N1        &kp N2        &kp N3  &kp MINUS  &trans      &trans    &kp APOS    &kp EQUAL  &kp LBKT  &kp RBKT   &kp GRAVE
 &kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans     &trans      &mkp MB4  &mkp MB5                                    &kp RSHFT
             >;
+
+            sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB)>;
         };
 
         layer_6 {
@@ -139,26 +220,34 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans             &trans  &trans             &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp_exit_AML MB1  &trans  &mkp_exit_AML MB2  &mkp_exit_AML MB3
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans             &trans  &trans             &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                &trans
+// 左手: モディファイア＋編集ショートカット   右手: マウスボタン
+&trans       &trans       &trans       &trans       &trans                      &trans  &trans             &trans  &trans             &trans
+&kp LCTRL    &kp LSHFT    &kp LALT     &trans       &trans  &trans      &trans  &trans  &mkp_exit_AML MB1  &trans  &mkp_exit_AML MB2  &mkp_exit_AML MB3
+&kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &trans  &trans      &trans  &trans  &trans             &trans  &trans             &trans
+&trans       &trans       &trans       &trans       &trans  &trans      &trans  &trans                                                &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp LC(MINUS) LC(EQUAL)>;
         };
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+// 左手: ブラウザ操作（右手トラックボール中に使える）
+&trans        &kp LC(LS(TAB))  &kp LC(T)     &kp LC(TAB)  &trans                      &trans  &trans  &trans  &trans  &trans
+&kp LA(LEFT)  &kp LC(W)        &kp LC(L)     &kp LC(R)    &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &kp LC(Z)        &kp LC(Y)     &kp LC(V)    &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL     &kp LEFT_WIN     &kp LEFT_ALT  &trans        &trans  &trans      &trans  &trans                          &trans
             >;
+
+            sensor-bindings = <&scroll_left_right>;
         };
 
         SYMBOL {
             bindings = <
-&trans     &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                                &kp BSLH           &trans     &kp LEFT_BRACE    &kp RIGHT_BRACE    &trans
-&trans     &kp DOLLAR       &kp PERCENT   &kp CARET             &kp COLON              &trans      &trans            &kp TILDE          &kp SLASH  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_SHIFT
+// Q=-> (arrow)
+&arrow     &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                                &kp BSLH           &trans     &kp LEFT_BRACE    &kp RIGHT_BRACE    &trans
+// A==> (fat_arrow)  extra=!=
+&fat_arrow &kp DOLLAR       &kp PERCENT   &kp CARET             &kp COLON              &not_eq     &trans            &kp TILDE          &kp SLASH  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_SHIFT
 &trans     &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &kp UNDERSCORE         &trans      &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &kp PLUS   &kp LESS_THAN     &kp GREATER_THAN   &kp COLON
 &kp LCTRL  &kp LEFT_WIN     &kp LEFT_ALT  &trans                &trans                 &trans      &trans            &trans                                                             &kp QUESTION
             >;

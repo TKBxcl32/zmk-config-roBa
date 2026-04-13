@@ -72,7 +72,7 @@
         };
 
         // アンドゥ（X+C）
-        UNDO {
+        combo_undo {
             bindings = <&kp LC(Z)>;
             key-positions = <23 24>;
             layers = <0>;

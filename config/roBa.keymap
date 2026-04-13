@@ -10,7 +10,12 @@
 
 &mt {
     flavor = "balanced";
-    quick-tap-ms = <150>;
+    quick-tap-ms = <0>;
+};
+
+&trackball {
+    automouse-layer = <4>;
+    scroll-layers = <5>;
 };
 
 &sl { release-after-ms = <450>; }; // ダブルクリックに必要な時間を設定

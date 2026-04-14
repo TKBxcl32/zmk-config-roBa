@@ -225,11 +225,10 @@
 
         MOUSE {
             bindings = <
-// 左手: モディファイア＋編集ショートカット   右手: マウスボタン
-&trans       &trans       &trans       &trans       &trans                      &trans  &trans             &trans  &trans             &trans
-&kp LCTRL    &kp LSHFT    &kp LALT     &trans       &trans  &trans      &trans  &trans  &mkp_exit_AML MB1  &trans  &mkp_exit_AML MB2  &mkp_exit_AML MB3
-&kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &trans  &trans      &trans  &trans  &trans             &trans  &trans             &trans
-&trans       &trans       &trans       &trans       &trans  &trans      &trans  &trans                                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans  &trans             &trans  &trans             &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp_exit_AML MB1  &trans  &mkp_exit_AML MB2  &mkp_exit_AML MB3
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans             &trans  &trans             &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(MINUS) LC(EQUAL)>;

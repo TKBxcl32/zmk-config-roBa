@@ -2,6 +2,43 @@
 
 <img src="keymap-drawer/roBa.svg" >
 
+## OS切り替え
+
+roBa は **Windows モード**（デフォルト）と **Mac モード**の2つの動作モードを持ちます。  
+モードはレイヤー切り替えで永続的に保持されます（電源を切っても維持されます）。
+
+### Windows → Mac への切り替え
+
+1. `LANGUAGE_2`（左人差し指キー）を**長押し** → BTレイヤー（layer 6）が有効になる
+2. 右手ホームロウの **`J`** キーを押す → Mac モード（MAC_DEFAULT レイヤー）に切り替わる
+
+### Mac → Windows への戻し方
+
+1. `LANGUAGE_2`（左人差し指キー）を**長押し** → BTレイヤー（layer 6）が有効になる
+2. 右手ホームロウの **`H`** キーを押す → Windows モード（デフォルトレイヤー）に切り替わる
+
+> **補足**: BTレイヤーにはBluetooth接続切り替え（`Y`〜`P`）も配置されています。  
+> 接続中のデバイスを切り替えたい場合は、同じく `LANGUAGE_2` 長押し後、上段の `Y` / `U` / `I` / `O` / `P` でプロファイル 0〜4 を選択してください。
+
+### Macモードでの主な違い
+
+| 操作 | Windows | Mac |
+|------|---------|-----|
+| 保存（S+F コンボ） | `Ctrl+S` | `Cmd+S` |
+| アンドゥ（X+C コンボ） | `Ctrl+Z` | `Cmd+Z` |
+| コメントトグル（J+K コンボ） | `Ctrl+/` | `Cmd+/` |
+| コマンドパレット（FUNCTIONレイヤー `Y`） | `Ctrl+Shift+P` | `Cmd+Shift+P` |
+| 行削除（FUNCTIONレイヤー `U`） | `Ctrl+Shift+K` | `Cmd+Shift+K` |
+| サイドバー（FUNCTIONレイヤー `O`） | `Ctrl+B` | `Cmd+B` |
+| ブラウザ戻る（SCROLLレイヤー `A`） | `Alt+Left` | `Cmd+[` |
+| タブ閉じる（SCROLLレイヤー `S`） | `Ctrl+W` | `Cmd+W` |
+| アドレスバー（SCROLLレイヤー `D`） | `Ctrl+L` | `Cmd+L` |
+| リロード（SCROLLレイヤー `F`） | `Ctrl+R` | `Cmd+R` |
+| ワード削除（FUNCTIONレイヤー `G`） | `Ctrl+Del` | `Alt+Del` |
+| 左サムキー（長押し操作） | スクショ `Win+Shift+S` | スクショ `Cmd+Shift+4` |
+
+---
+
 ## クイックリファレンス
 
 ### コンボ（デフォルトレイヤー）
